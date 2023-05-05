@@ -2,7 +2,7 @@
 
 #include "camera.h"
 
-const static float STEP_SCALE = 0.4f;
+const static float STEP_SCALE = 0.1f;
 const static int MARGIN = 10;
 
 Camera::Camera(int WindowWidth, int WindowHeight)
