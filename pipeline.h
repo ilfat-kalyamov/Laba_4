@@ -8,8 +8,8 @@ class Pipeline
 public:
     Pipeline()
     {
-        m_scale      = Vector3f(1.0f, 1.0f, 1.0f);
-        m_worldPos   = Vector3f(0.0f, 0.0f, 0.0f);
+        m_scale = Vector3f(1.0f, 1.0f, 1.0f);
+        m_worldPos = Vector3f(0.0f, 0.0f, 0.0f);
         m_rotateInfo = Vector3f(0.0f, 0.0f, 0.0f);
     }
 
@@ -33,14 +33,19 @@ public:
         m_rotateInfo.y = RotateY;
         m_rotateInfo.z = RotateZ;
     }
-
-    void SetPerspectiveProj(float FOV, float Width, float Height, float zNear, float zFar)
+    //урок23-24
+    //void SetPerspectiveProj(float FOV, float Width, float Height, float zNear, float zFar)
+    //{
+    //    m_persProj.FOV = FOV;
+    //    m_persProj.Width = Width;
+    //    m_persProj.Height = Height;
+    //    m_persProj.zNear = zNear;
+    //    m_persProj.zFar = zFar;
+    //}
+    //урок25-26
+    void SetPerspectiveProj(const PersProjInfo& p)
     {
-        m_persProj.FOV    = FOV;
-        m_persProj.Width  = Width;
-        m_persProj.Height = Height;
-        m_persProj.zNear  = zNear;
-        m_persProj.zFar   = zFar;
+        m_persProjInfo = p;
     }
 
     void SetCamera(const Vector3f& Pos, const Vector3f& Target, const Vector3f& Up)
@@ -61,13 +66,16 @@ private:
     Vector3f m_worldPos;
     Vector3f m_rotateInfo;
 
-    struct {
-        float FOV;
-        float Width;
-        float Height;
-        float zNear;
-        float zFar;
-    } m_persProj;
+    //урок23-24
+    //struct {
+    //    float FOV;
+    //    float Width;
+    //    float Height;
+    //    float zNear;
+    //    float zFar;
+    //} m_persProj;
+    //урок25-26
+    PersProjInfo m_persProjInfo;
 
     struct {
         Vector3f Pos;
@@ -81,4 +89,3 @@ private:
 
 
 #endif	/* PIPELINE_H */
-
